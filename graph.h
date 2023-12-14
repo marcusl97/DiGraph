@@ -23,7 +23,7 @@ public:
     void graph_delete_node(Node& n);
     void graph_insert_edge(Node* n1, Node* n2);
     void graph_delete_edge(Node& n1, Node& n2);
-    bool graph_node_is_seen(const Node& n);
+    [[nodiscard]] bool graph_node_is_seen(const Node& n) const;
     void graph_node_set_seen(Node& n, bool seen);
     void graph_reset_seen();
     void graph_print() const;

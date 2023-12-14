@@ -96,6 +96,17 @@ TEST_F(GraphTest, GraphResetSeen) {
     EXPECT_FALSE(graph.graph_node_is_seen(*graph.graph_find_node("B")));
 }
 
+TEST_F(GraphTest, GraphNeighbours) {
+    graph.graph_insert_node("A");
+    graph.graph_insert_node("B");
+    graph.graph_insert_node("C");
+    graph.graph_insert_edge(graph.graph_find_node("A"), graph.graph_find_node("B"));
+    graph.graph_insert_edge(graph.graph_find_node("A"), graph.graph_find_node("B"));
+    graph.graph_reset_seen();
+    EXPECT_FALSE(graph.graph_node_is_seen(*graph.graph_find_node("A")));
+    EXPECT_FALSE(graph.graph_node_is_seen(*graph.graph_find_node("B")));
+}
+
 // Add more test cases as needed
 
 int main(int argc, char** argv) {

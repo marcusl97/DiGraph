@@ -30,8 +30,8 @@ public:
     void graph_delete_node(Node& n);
     void graph_insert_edge(Node* n1, Node* n2);
     void graph_delete_edge(Node& n1, Node& n2);
-    static bool graph_node_is_seen(const Node& n);
-    static void graph_node_set_seen(Node& n, bool seen);
+    bool graph_node_is_seen(const Node& n) const;
+    void graph_node_set_seen(Node& n, bool seen);
     void graph_reset_seen();
     void graph_print() const;
     std::vector<Node*> node_neighbours(Node& n);
@@ -89,7 +89,7 @@ void DiGraph::graph_delete_edge(Node& n1, Node& n2)
     m_numEdges--;
 }
 
-bool DiGraph::graph_node_is_seen(const Node& n) {
+bool DiGraph::graph_node_is_seen(const Node& n) const{
     return n.seen;
 }
 
@@ -121,7 +121,7 @@ std::vector<Node*> DiGraph::node_neighbours(Node& n)
 
 void DiGraph::graph_print() const {
     for (const auto& n : m_nodes) {
-        std::cout << "Node: " << n.name << ", Seen: " << (n.seen ? "true" : "false") << ", Neighbors: [";
+        std::cout << "Node: " << n.name << ", Seen: " << (this->graph_node_is_seen(n) ? "true" : "false") << ", Neighbors: [";
         for (const auto& neighbour : n.neighbours) {
             std::cout << neighbour.name << ", ";
         }

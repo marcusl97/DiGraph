@@ -122,6 +122,7 @@ bool find_path(DiGraph& g, std::string& src_name, std::string& dest_name)
         // Check if the current node is the target node.
         if (g.nodes_are_equal(*dest, *current))
         {
+
             // Found a path from start to target.
             return true;
         }
