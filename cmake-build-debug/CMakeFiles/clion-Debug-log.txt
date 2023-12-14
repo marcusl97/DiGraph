@@ -1,0 +1,6 @@
+/snap/clion/260/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/260/bin/ninja/linux/x64/ninja -G Ninja -S /home/marcuslundqvist/Documents/programming/cpp/graph -B /home/marcuslundqvist/Documents/programming/cpp/graph/cmake-build-debug
+CMake Error at CMakeLists.txt:1 (cmake_minimum_required):
+  Maximum recursion depth of 1000 exceeded
+
+
+-- Configuring incomplete, errors occurred!
