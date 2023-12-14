@@ -128,9 +128,9 @@ bool find_path(DiGraph& g, std::string& src_name, std::string& dest_name)
         }
 
         // Get the neighbors of the current node.
-        std::vector<Node*> neighbors = g.node_neighbours(*current);
+        std::vector<Node*> neighbours = g.node_neighbours(*current);
 
-        for (Node* node : neighbors)
+        for (Node* node : neighbours)
         {
             if (!g.graph_node_is_seen(*node))
             {

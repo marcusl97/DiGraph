@@ -101,10 +101,21 @@ TEST_F(GraphTest, GraphNeighbours) {
     graph.graph_insert_node("B");
     graph.graph_insert_node("C");
     graph.graph_insert_edge(graph.graph_find_node("A"), graph.graph_find_node("B"));
-    graph.graph_insert_edge(graph.graph_find_node("A"), graph.graph_find_node("B"));
-    graph.graph_reset_seen();
-    EXPECT_FALSE(graph.graph_node_is_seen(*graph.graph_find_node("A")));
-    EXPECT_FALSE(graph.graph_node_is_seen(*graph.graph_find_node("B")));
+    graph.graph_insert_edge(graph.graph_find_node("A"), graph.graph_find_node("C"));
+    std::vector<Node*> neighbours = graph.node_neighbours(*graph.graph_find_node("A"));
+    int i = 0;
+    for(auto node : neighbours)
+    {
+        if(i == 0)
+        {
+            EXPECT_TRUE(graph.nodes_are_equal(*node, Node("B")));
+        }
+        else
+        {
+            EXPECT_TRUE(graph.nodes_are_equal(*node, Node("C")));
+        }
+        i++;
+    }
 }
 
 // Add more test cases as needed
